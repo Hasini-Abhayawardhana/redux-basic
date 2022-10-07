@@ -1,7 +1,7 @@
-import {FETCH_BUTTON_CLICK} from './Types' 
-
+import {FETCH_BUTTON_CLICK,SELECT_POST} from './Types' 
+import axios from 'axios'
 //action creater
-export const fetchPosts=()=>{
+/*export const fetchPosts=()=>{
     //action
     return{
         type:FETCH_BUTTON_CLICK,
@@ -31,5 +31,25 @@ export const fetchPosts=()=>{
                 text: "Provider and finally component"
             }
         ]
+    }
+}
+*/
+
+export const fetchPosts = () => dispach => {
+    axios.get("https://jsonplaceholder.typicode.com/posts?_limit=5")
+    .then(res => {
+        dispach({
+            type:FETCH_BUTTON_CLICK,
+            payload: res.data
+        })
+    })
+}
+
+//action creater
+export const selectPost = (post) => {
+    //action
+    return {
+        type:SELECT_POST,
+        payload:post
     }
 }

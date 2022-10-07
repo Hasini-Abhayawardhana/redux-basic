@@ -1,1 +1,2 @@
 export const FETCH_BUTTON_CLICK = 'FETCH_BUTTON_CLICK';
+export const SELECT_POST = 'SELECT_POST';
